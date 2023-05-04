@@ -7,7 +7,7 @@ import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { createUser, user } = useContext(AuthContext);
+    const { createUser, updateUserData } = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {
@@ -20,7 +20,7 @@ const Register = () => {
         const confirm = form.confirm.value;
 
         console.log(name, photo, email, password)
-
+        updateUserData( name, photo)
         setError('');
         if (password !== confirm) {
             setError('Your password did not match')
@@ -36,24 +36,14 @@ const Register = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 setError('')
-                updateUserData(result.user, name, photo)
+                
             })
             .catch(error => {
                 console.log(error);
                 setError(error.message);
             })
 
-        const updateUserData = (user, name, photo) => {
-            updateProfile(user,name, photo, {
-                displayName: name,
-                photoURL: photo
-            })
-                .then(() => {
-                    console.log('User profile updated')
-                }).catch((error) => {
-                    setError(error.message);
-                });
-        }
+       
     }
 
     const handleAccepted = event => {
