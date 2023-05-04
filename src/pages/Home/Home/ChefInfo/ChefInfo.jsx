@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 
 
-const ChefInfo = ({ chefInfo }) => {
+const ChefInfo = ({chefInfo}) => {
     
     const { chefName, chefPicture, likes, numRecipes, yearsExperience } = chefInfo;
 
@@ -25,7 +25,7 @@ const ChefInfo = ({ chefInfo }) => {
                             <FcLike style={{ fontSize: '2rem' }}></FcLike> {likes}
                         </div>
                         <div>
-                            <Link to='/recipes'>
+                            <Link to='/recipes' chefinfo={chefInfo} >
                                 <Button variant="secondary">View Recipes
                                 </Button>
                             </Link>
