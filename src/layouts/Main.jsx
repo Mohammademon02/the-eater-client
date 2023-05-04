@@ -8,18 +8,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet>
-                {/* <Container>
-                    <Row>
-                        <Col sm={9}>
-                            <h1>main content coming...</h1>
-                        </Col>
-                        <Col sm={3}>
-                            <h1>right side content coming soon...</h1>
-                        </Col>
-                    </Row>
-                </Container> */}
-            </Outlet>
+            <Outlet></Outlet>
             <Footer></Footer>
         </div>
     );

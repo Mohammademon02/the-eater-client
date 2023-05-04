@@ -46,9 +46,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <div className='container'>
-                <h1>this is banner</h1>
-            </div>
+            
         </div>
     );
 };
