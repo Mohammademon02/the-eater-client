@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import banner from '../../../assets/banner.png'
 import { Col, Container, Row } from 'react-bootstrap';
 import ChefInfo from './ChefInfo/ChefInfo';
+import RightSide from '../RightSide/RightSide';
 
 const Home = () => {
 
@@ -32,7 +33,7 @@ const Home = () => {
                         </Row>
                     </Col>
                     <Col sm={3}>
-                        <h1>right side content coming soon...</h1>
+                        <RightSide></RightSide>
                     </Col>
                 </Row>
             </Container>

@@ -25,7 +25,7 @@ const ChefInfo = ({chefInfo}) => {
                             <FcLike style={{ fontSize: '2rem' }}></FcLike> {likes}
                         </div>
                         <div>
-                            <Link to='/recipes' chefinfo={chefInfo} >
+                            <Link to='/recipes' >
                                 <Button variant="secondary">View Recipes
                                 </Button>
                             </Link>
