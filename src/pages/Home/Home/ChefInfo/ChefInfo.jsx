@@ -6,7 +6,7 @@ import { FcLike } from 'react-icons/fc';
 
 const ChefInfo = ({chefInfo}) => {
     
-    const { chefName, chefPicture, likes, numRecipes, yearsExperience } = chefInfo;
+    const { id, chefName, chefPicture, likes, numRecipes, yearsExperience } = chefInfo;
 
     return (
         <CardGroup>
@@ -25,7 +25,7 @@ const ChefInfo = ({chefInfo}) => {
                             <FcLike style={{ fontSize: '2rem' }}></FcLike> {likes}
                         </div>
                         <div>
-                            <Link to='/recipes' >
+                            <Link to={`/recipes/${id}`} >
                                 <Button variant="secondary">View Recipes
                                 </Button>
                             </Link>
