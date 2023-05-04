@@ -22,7 +22,7 @@ const Home = () => {
             <Container>
                 <Row className='mt-5'>
                     <Col sm={9}>
-                        <Row sm={1} md={2} lg={3}>
+                        <Row sm={1} md={2} lg={3} className="g-4">
                             {
                                 chefInfo.map(chefInfo => <ChefInfo
                                     chefInfo={chefInfo}

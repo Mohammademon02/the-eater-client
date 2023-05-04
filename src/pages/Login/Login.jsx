@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { BsGoogle, BsGithub } from 'react-icons/bs';
+
 
 
 const Login = () => {
     const [error, setError] = useState('')
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
@@ -33,6 +35,33 @@ const Login = () => {
             })
     }
 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const googleUser = result.user
+                console.log(googleUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                const githubUser = result.user
+                console.log(githubUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+            })
+    }
+
+
     return (
         <Container className='w-25 mx-auto'>
             <h3>Please Login</h3>
@@ -54,6 +83,15 @@ const Login = () => {
                 <Form.Text className="text-secondary">
                     Don't Have an Account? <Link to="/register">Register</Link>
                 </Form.Text>
+                <br />
+                <div className='mt-3'>
+                    <Button className='me-3' onClick={handleGoogleSignIn} variant="primary" type="submit">
+                        <BsGoogle></BsGoogle>
+                    </Button>
+                    <Button onClick={handleGithubSignIn} variant="primary" type="submit">
+                        <BsGithub></BsGithub>
+                    </Button>
+                </div>
                 <br />
                 <Form.Text className="text-danger fw-bold">
                     {error}
