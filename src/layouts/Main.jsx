@@ -9,7 +9,7 @@ const Main = () => {
         <div>
             <Header></Header>
             <Outlet>
-                <Container>
+                {/* <Container>
                     <Row>
                         <Col sm={9}>
                             <h1>main content coming...</h1>
@@ -18,7 +18,7 @@ const Main = () => {
                             <h1>right side content coming soon...</h1>
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
             </Outlet>
             <Footer></Footer>
         </div>

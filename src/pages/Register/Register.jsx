@@ -3,9 +3,11 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('')
+    const { createUser, user } = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {
@@ -15,16 +17,43 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
 
         console.log(name, photo, email, password)
+
+        setError('');
+        if (password !== confirm) {
+            setError('Your password did not match')
+            return
+        }
+        else if (password.length < 6) {
+            setError('Password must be 6 characters or more')
+            return
+        }
+
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                setError('')
+                updateUserData(result.user, name, photo)
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message);
             })
+
+        const updateUserData = (user, name, photo) => {
+            updateProfile(user,name, photo, {
+                displayName: name,
+                photoURL: photo
+            })
+                .then(() => {
+                    console.log('User profile updated')
+                }).catch((error) => {
+                    setError(error.message);
+                });
+        }
     }
 
     const handleAccepted = event => {
@@ -48,9 +77,13 @@ const Register = () => {
                     <Form.Control type="email" name='email' placeholder="Enter email" required />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" >
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
+                </Form.Group>
+                <Form.Group className="mb-3" >
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" name='confirm' placeholder="Confirm password" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -67,11 +100,9 @@ const Register = () => {
                 <Form.Text className="text-secondary">
                     Already Have an Account? <Link to="/login">Login</Link>
                 </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
+                <br />
+                <Form.Text className="text-danger fw-bold">
+                    {error}
                 </Form.Text>
             </Form>
         </Container>
