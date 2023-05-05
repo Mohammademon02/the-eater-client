@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -41,7 +40,7 @@ const ChefRecipesDetails = ({ recipes }) => {
                         <div>
                             <Button onClick={notify}
                                 disabled={!disable}
-                                variant="secondary">Add to Favorite
+                                variant="success">Add to Favorite
                             </Button>
                             <ToastContainer />
 

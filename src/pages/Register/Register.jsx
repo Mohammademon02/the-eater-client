@@ -51,7 +51,7 @@ const Register = () => {
     }
 
     return (
-        <Container className='w-25 mx-auto'>
+        <Container className='w-25 mx-auto my-5'>
             <h3>Please Register</h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" >
@@ -83,7 +83,7 @@ const Register = () => {
                         name="accept"
                         label={<>Accept <Link to="/terms">Terms and Conditions</Link> </>} />
                 </Form.Group>
-                <Button variant="primary" disabled={!accepted} type="submit">
+                <Button variant="success" disabled={!accepted} type="submit">
                     Register
                 </Button>
                 <br />

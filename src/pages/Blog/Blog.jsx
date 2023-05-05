@@ -22,7 +22,7 @@ const Blog = () => {
             <p className='mt-3' style={{ textAlign: 'justify' }}>Answer : A custom hook in React.js is a user-defined hook that builds on one or more default hooks. A custom hook enables you to encapsulate functionality into a reusable hook. For example, say you want to conditionally render a component based on the window’s screen size. JavaScript lets you add a resize event listener to the window object so you can run some logic whenever a window is resized. You can create a custom hook called useScreenSize that will detect changes in screen size and return the updated screen size.
             </p>
             <Pdf targetRef={ref} filename="blog.pdf">
-                {({ toPdf }) => <button className='btn btn-secondary' onClick={toPdf}>Generate Pdf</button>}
+                {({ toPdf }) => <button className='btn btn-success' onClick={toPdf}>Generate Pdf</button>}
             </Pdf>
         </div>
     );

@@ -25,7 +25,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="/">The Eater</Navbar.Brand>
+                    <Navbar.Brand className='fw-bold' href="/">The Eater</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
@@ -49,9 +49,9 @@ const Header = () => {
                             }
 
                             {user ?
-                                <Link><Button onClick={handleLogOut} variant="secondary">Logout</Button></Link> :
+                                <Link><Button className='ms-2'  onClick={handleLogOut} variant="success">Logout</Button></Link> :
                                 <Link to="/login">
-                                    <Button variant="secondary">Login</Button>
+                                    <Button variant="success">Login</Button>
                                 </Link>
                             }
                         </Nav>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
+import { useLoaderData,  } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 import ChefRecipesDetails from '../ChefRecipesDetails/ChefRecipesDetails';
 
@@ -14,7 +14,7 @@ const ChefRecipes = () => {
     console.log(recipes[0]);
     return (
         <Container >
-            <Row className='mt-5'>
+            <Row className='my-5'>
                 <Col>
                     <CardGroup>
                         <Card>

@@ -63,8 +63,8 @@ const Login = () => {
 
 
     return (
-        <Container className='w-25 mx-auto'>
-            <h3>Please Login</h3>
+        <Container className='w-25 mx-auto my-5'>
+            <h3>Please Login to enter The Eater</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -76,7 +76,7 @@ const Login = () => {
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="success" type="submit">
                     Login
                 </Button>
                 <br />
@@ -85,10 +85,10 @@ const Login = () => {
                 </Form.Text>
                 <br />
                 <div className='mt-3'>
-                    <Button className='me-3' onClick={handleGoogleSignIn} variant="primary" type="submit">
+                    <Button className='me-3' onClick={handleGoogleSignIn} variant="success" type="submit">
                         <BsGoogle></BsGoogle>
                     </Button>
-                    <Button onClick={handleGithubSignIn} variant="primary" type="submit">
+                    <Button onClick={handleGithubSignIn} variant="success" type="submit">
                         <BsGithub></BsGithub>
                     </Button>
                 </div>

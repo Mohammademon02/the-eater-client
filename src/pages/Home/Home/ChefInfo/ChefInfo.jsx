@@ -1,4 +1,4 @@
-import { Button, Card, CardGroup, Spinner } from 'react-bootstrap';
+import { Button, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 
@@ -29,7 +29,7 @@ const ChefInfo = ({chefInfo}) => {
                         </div>
                         <div>
                             <Link to={`/recipes/${id}`} >
-                                <Button variant="secondary">View Recipes
+                                <Button variant="success">View Recipes
                                 </Button>
                             </Link>
                         </div>
