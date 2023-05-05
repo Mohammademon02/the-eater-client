@@ -10,4 +10,4 @@
 
 * In the login page you will see a login form and also 2 another button for login with google and login with github.
 
-* Live website link : 
+* Live website link : https://the-eater.firebaseapp.com
