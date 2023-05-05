@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
+import './Header.css'
 
 const Header = () => {
 
@@ -14,23 +15,34 @@ const Header = () => {
             .catch(error => console.log(error));
     }
 
+    const navLinkStyle = ({ isActive }) => {
+        return {
+            background: isActive ? '#EAFCE4' : ""
+        }
+    }
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">The Eater</Navbar.Brand>
+                    <Navbar.Brand href="/">The Eater</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Link to="/">Home</Link>
-                            <Link to="/blog">Blog</Link>
-                            <Link to="/register">Register</Link>
+                            <NavLink style={navLinkStyle} className="text-decoration-none text-black px-3 py-2" to="/">Home</NavLink>
+                            <NavLink style={navLinkStyle} className="text-decoration-none text-black px-3 py-2" to="/blog">Blog</NavLink>
+                            <Nav>
+                                {user ?
+                                    <NavLink style={navLinkStyle} className="d-none text-decoration-none text-black px-3 py-2" to="/register">Register</NavLink> :
+                                    <NavLink style={navLinkStyle} className="text-decoration-none text-black px-3 py-2" to="/register">Register</NavLink>
+                                }
+                            </Nav>
                         </Nav>
                         <Nav>
                             {
-                                user && <div>
+                                user && <div >
                                     {
-                                        user.photoURL ? <img className='rounded-circle' style={{ height: '40px' }} src={user.photoURL} alt="" /> :
+                                        user.photoURL && user.displayName ? <img className='rounded-circle' style={{ height: '40px' }} src={user.photoURL} data-toggle="tooltip" data-placement="left" title={user.displayName} alt="" /> :
                                             <p><FaUserCircle style={{ fontSize: '40px' }}></FaUserCircle></p>
                                     }
                                 </div>
@@ -46,7 +58,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
+
         </div>
     );
 };

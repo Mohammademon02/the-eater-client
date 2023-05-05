@@ -3,7 +3,6 @@ import banner from '../../../assets/banner.png'
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import ChefInfo from './ChefInfo/ChefInfo';
 import RightSide from '../RightSide/RightSide';
-
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
