@@ -1,12 +1,15 @@
-import React from 'react';
-import { Button, Card, CardGroup } from 'react-bootstrap';
+import { Button, Card, CardGroup, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 
 
 const ChefInfo = ({chefInfo}) => {
+
     
+
     const { id, chefName, chefPicture, likes, numRecipes, yearsExperience } = chefInfo;
+
+    
 
     return (
         <CardGroup>

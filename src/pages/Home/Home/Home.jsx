@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import banner from '../../../assets/banner.png'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import ChefInfo from './ChefInfo/ChefInfo';
 import RightSide from '../RightSide/RightSide';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProvider';
+
 
 const Home = () => {
 
@@ -15,9 +19,15 @@ const Home = () => {
             .catch(error => console.error(error))
     }, [])
 
+    const { loading } = useContext(AuthContext);
+
+    if (loading) {
+        return <Spinner animation="grow" variant="secondary" />
+    }
+
     return (
-        <section className=''>
-            <div className=''>
+        <section >
+            <div >
                 <img className='w-100' src={banner} alt="" />
             </div>
             <Container>
